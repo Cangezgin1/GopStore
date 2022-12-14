@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccsessLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,12 @@ namespace GopStore.Controllers
     public class HomeController : Controller
     {
 
-        public IActionResult Index()
+        Context c = new Context();
+
+        public IActionResult StudentList()   
         {
-            return View();
+            var values = c.Users.ToList();
+            return View(values);
         }
 
     }

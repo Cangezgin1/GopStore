@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Users>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<body style="text-align:center;">
+
+    <h1 class="h3 -mb-4" style="margin-top:5%;margin-bottom:5%;">ADMİN PANELİNE HOŞGELDİNİZ</h1>
+    
+    <h3>Öğrenci Listesi</h3>
+
+    <table style="text-align:center !important" class="table table-striped table-bordered table-responsive-lg">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Soyisim</th>
+            <th scope="col">TC Kimlik Numarasi</th>
+            <th scope="col">Okul Numarası</th>
+            <th scope="col">Sınıfı</th>
+        </tr>
+        @foreach (var item in Model)
+         {
+            <tr>
+                <th>@item.UserID</th>
+                <td>@item.İsim</td>
+                <td>@item.Soyisim</td>
+                <td>@item.TCKimlikNumarasi</td>
+                <td>@item.OkulNumarasi</td>
+                <td>@item.Sinif</td>
+            </tr>
+         }
+    </table>
+</body>
