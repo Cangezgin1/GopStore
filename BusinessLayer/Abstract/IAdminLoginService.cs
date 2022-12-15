@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccsessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface IUsersDal:IRepository<Students>
+    public interface IAdminLoginService
     {
+        Admins GetAdmin(string mail, string password);
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccsessLayer.Abstract
 {
-    public interface IGenericDal<T>
+    public interface IRepository<T>
     {
         List<T> List();
 

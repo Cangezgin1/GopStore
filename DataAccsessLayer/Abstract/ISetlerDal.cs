@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccsessLayer.Abstract
 {
-    public interface ISetlerDal:IGenericDal<Setler>
+    public interface ISetlerDal:IRepository<Setler>
     {
     }
 }

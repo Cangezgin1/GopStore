@@ -14,7 +14,7 @@ namespace GopStore.Controllers
 
         public IActionResult StudentList()   
         {
-            var values = c.Users.ToList();
+            var values = c.Students.ToList();
             return View(values);
         }
 

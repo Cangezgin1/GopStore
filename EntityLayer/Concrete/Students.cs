@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Users
+    public class Students
     {
         [Key]
-        public int UserID { get; set; }
+        public int StudentID { get; set; }
         [StringLength(100)]
         public string İsim{ get; set; }
         [StringLength(100)]
@@ -23,6 +23,6 @@ namespace EntityLayer.Concrete
         public string Sinif { get; set; }
 
 
-        public ICollection<Users_Setler> Users_Setlers { get; set; }
+        public ICollection<Students_Setler> Users_Setlers { get; set; }
     }
 }

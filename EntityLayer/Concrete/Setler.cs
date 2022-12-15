@@ -19,6 +19,6 @@ namespace EntityLayer.Concrete
         [StringLength(10)]
         public string Sinif { get; set; }
 
-        public ICollection<Users_Setler> Users_Setlers { get; set; }
+        public ICollection<Students_Setler> Users_Setlers { get; set; }
     }
 }

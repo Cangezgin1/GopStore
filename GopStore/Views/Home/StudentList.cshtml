@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model List<Users>
+@model List<Students>
 
 @{
     ViewData["Title"] = "Index";
@@ -26,7 +26,7 @@
         @foreach (var item in Model)
          {
             <tr>
-                <th>@item.UserID</th>
+                <td>@item.StudentID</td>
                 <td>@item.İsim</td>
                 <td>@item.Soyisim</td>
                 <td>@item.TCKimlikNumarasi</td>

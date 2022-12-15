@@ -15,13 +15,14 @@ namespace DataAccsessLayer.Concrete
             optionsBuilder.UseSqlServer("server=DESKTOP-HD6BB26\\SQLEXPRESS;database=GopStoreDb;integrated security=true");
         }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<Students> Students { get; set; }
         public DbSet<Setler> Setlers { get; set; }
+        public DbSet<Admins> Admins{ get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)   // Çoka çok bağlantı için method oluşturuyorum çünkü
         {                                                                    // bir tabloda birden fazla key oluşturamıyoruz..
-            modelBuilder.Entity<Users_Setler>().HasKey(x => new { x.UserID, x.SetID});
+            modelBuilder.Entity<Students_Setler>().HasKey(x => new { x.StudentID, x.SetID});
         }
     }
 }

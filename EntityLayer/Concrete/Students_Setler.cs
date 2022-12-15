@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Users_Setler
+    public class Students_Setler
     {
-        [ForeignKey("Users")]
-        public int UserID { get; set; }
+        [ForeignKey("Students")]
+        public int StudentID { get; set; }
 
         [ForeignKey("Setler")]
         public int SetID { get; set; }
 
-        public Users Users { get; set; }
+        public Students Students { get; set; }
         public Setler Setler { get; set; }
 
     }

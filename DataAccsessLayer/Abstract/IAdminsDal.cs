@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccsessLayer.Abstract
 {
-    public interface IUsersDal:IRepository<Students>
+    public interface IAdminsDal : IRepository<Admins>
     {
     }
 }

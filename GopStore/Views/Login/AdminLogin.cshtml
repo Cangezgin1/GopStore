@@ -26,33 +26,32 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('/Login/images/bg-01.jpg');">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                    @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                     {
+                        <span class="login100-form-logo">
+                            <i class="zmdi zmdi-account-calendar"></i>
+                        </span>
 
-                    <span class="login100-form-logo">
-                        <i class="zmdi zmdi-account-calendar"></i>
-                    </span>
+                        <span style="font-weight: bold; font-size: x-large; margin-bottom: 10%; " class="login100-form-title p-b-34 p-t-27">
+                            GOPSTORE GİRİŞ
+                        </span>
 
-                    <span style="font-weight: bold; font-size: x-large; margin-bottom: 10%; " class="login100-form-title p-b-34 p-t-27">
-                        GOPSTORE GİRİŞ
-                    </span>
+                        <div class="wrap-input100 validate-input" data-validate="Mail adresi giriniz lütfen">
+                            <input class="input100" type="text" name="AdminMail" placeholder="Mail adresi">
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="TC giriniz lütfen">
-                        <input class="input100" type="text" name="username" placeholder="TC Kimlik Numarası">
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="Şifre giriniz lütfen" style="margin-top:10%;">
+                            <input class="input100" type="password" name="AdminŞifre" placeholder="Şire">
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Şifre giriniz lütfen" style="margin-top:10%;">
-                        <input class="input100" type="password" name="pass" placeholder="Şire">
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn" style="margin-top:25%;">
-                        <button class="login100-form-btn">
-                            Giriş
-                        </button>
-                    </div>
-
-                </form>
+                        <div class="container-login100-form-btn" style="margin-top:25%;">
+                            <button class="login100-form-btn">
+                                Giriş
+                            </button>
+                        </div>
+                     }
             </div>
         </div>
     </div>
@@ -69,4 +68,3 @@
     <script src="~/Login/js/main.js"></script>
 </body>
 </html>
-
