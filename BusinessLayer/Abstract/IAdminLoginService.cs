@@ -9,6 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IAdminLoginService
     {
-        Admins GetAdmin(string mail, string password);
+        Admins GetAdmin(string Email, string password);
     }
 }

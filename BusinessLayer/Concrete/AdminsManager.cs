@@ -18,9 +18,12 @@ namespace BusinessLayer.Concrete
             _adminsDal = adminsDal;
         }
 
-        public Admins GetById(int id)
+        public Admins GetById(int? id)
         {
-            return _adminsDal.Get(x=>x.AdminID == id);
+            if (id != null)
+                return _adminsDal.Get(x => x.AdminID == id);
+            else
+                return new Admins();
         }
 
         public List<Admins> GetList()
@@ -28,17 +31,17 @@ namespace BusinessLayer.Concrete
             return _adminsDal.List();
         }
 
-        public void WriterAdd(Admins admins)
+        public void AdminAdd(Admins admins)
         {
             _adminsDal.Insert(admins);
         }
 
-        public void WriterDelete(Admins admins)
+        public void AdminDelete(Admins admins)
         {
             _adminsDal.Delete(admins);
         }
 
-        public void WriterUpdate(Admins admins)
+        public void AdminUpdate(Admins admins)
         {
             _adminsDal.Update(admins);
         }

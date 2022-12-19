@@ -28,17 +28,19 @@ namespace BusinessLayer.Concrete
             return _usersDal.List();
         }
 
-        public void WriterAdd(Students users)
+        public void StudentAdd(Students users)
         {
+            users.Status = true;
             _usersDal.Insert(users);
         }
 
-        public void WriterDelete(Students users)
+        public void StudentDelete(Students users)
         {
-            _usersDal.Delete(users);
+            users.Status = false;
+            _usersDal.Update(users);
         }
 
-        public void WriterUpdate(Students users)
+        public void StudentUpdate(Students users)
         {
             _usersDal.Update(users);
         }

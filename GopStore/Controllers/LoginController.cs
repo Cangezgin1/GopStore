@@ -2,6 +2,7 @@
 using DataAccsessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using GopStore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -22,7 +23,7 @@ namespace GopStore.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult AdminLogin(Admins a)
         {
@@ -30,12 +31,12 @@ namespace GopStore.Controllers
 
             if (adminkontrol != null)
             {
-                return RedirectToAction("StudentList", "Home");
+                HttpContext.Session.SetInt32("AdminID", adminkontrol.AdminID);
+
+                return RedirectToAction("Profil", "Home");
             }
             else
-            {
                 return RedirectToAction("AdminLogin");
-            }
         }
 
     }

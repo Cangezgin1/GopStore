@@ -11,12 +11,12 @@ namespace BusinessLayer.Abstract
     {
         List<Admins> GetList();
 
-        void WriterAdd(Admins admins);
+        void AdminAdd(Admins admins);
 
-        void WriterDelete(Admins admins);
+        void AdminDelete(Admins admins);
 
-        void WriterUpdate(Admins admins);
+        void AdminUpdate(Admins admins);
 
-        Admins GetById(int id);
+        Admins GetById(int? id);
     }
 }

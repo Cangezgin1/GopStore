@@ -1,0 +1,40 @@
+﻿
+@model EntityLayer.Concrete.Students
+
+@{
+    ViewData["Title"] = "StudentAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2">ÖĞRENCİ KAYIT SAYFASI</h1>
+
+@using (Html.BeginForm("StudentAdd", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
+        <br />
+        @Html.LabelForModel("Öğrenci Adı:")
+        @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.İsim)
+        <br />
+        @Html.Label("Öğrenci Soyadı:")
+        @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Soyisim)
+        <br />
+        @Html.Label("Öğrenci TC Kimlik Numarası:")
+        @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.TCKimlikNumarasi)
+        <br />
+        @Html.Label("Okul Numarası:")
+        @Html.TextBoxFor(x => x.OkulNumarasi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.OkulNumarasi)
+        <br />
+        @Html.Label("Sınıfı:")
+        @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Sinif)
+        <br />
+        <br />
+        <button class="btn btn-success">KAYIT</button>
+    </div>
+}
+

@@ -11,11 +11,11 @@ namespace BusinessLayer.Abstract
     {
         List<Students> GetList();
 
-        void WriterAdd(Students users);
+        void StudentAdd(Students users);
         
-        void WriterDelete(Students users);
+        void StudentDelete(Students users);
         
-        void WriterUpdate(Students users);
+        void StudentUpdate(Students users);
 
         Students GetById(int id);
     }
