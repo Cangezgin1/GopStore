@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class Users_SetlerManager : IStudents_SetlerService
+    public class Students_SetlerManager : IStudents_SetlerService
     {
         IStudents_SetlerDal _users_SetlerDal;
 
-        public Users_SetlerManager(IStudents_SetlerDal users_SetlerDal)
+        public Students_SetlerManager(IStudents_SetlerDal users_SetlerDal)
         {
             _users_SetlerDal = users_SetlerDal;
         }

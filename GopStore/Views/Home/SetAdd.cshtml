@@ -1,0 +1,41 @@
+﻿
+@model EntityLayer.Concrete.Setler
+
+@{
+    ViewData["Title"] = "SetAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large">EĞİTİM SETİ EKLEME SAYFASI</h1>
+
+@using (Html.BeginForm("SetAdd", "Home", FormMethod.Post))
+{
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
+        @Html.HiddenFor(x => x.SetID, new { @class = "form-control" })
+        <br />
+        <p>Set Adı:</p>
+        @Html.TextBoxFor(x => x.SetAdi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SetAdi, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Set Bilgisi:</p>
+        @Html.TextBoxFor(x => x.SetBilgisi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SetBilgisi, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Set Fiyatı:</p>
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Fiyat, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Sınıf:</p>
+        @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Set Resmi:</p>
+        @Html.TextBoxFor(x => x.SetImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SetImage, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <br />
+        <button class="btn btn-success">EKLE</button>
+    </div>
+}
+

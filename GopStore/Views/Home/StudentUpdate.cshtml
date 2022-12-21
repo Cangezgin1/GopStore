@@ -8,33 +8,36 @@
 
 <br />
 
-<h1 style="font-weight: bold; text-align: center; color: #7e3af2">ÖĞRENCİ DÜZENLEME</h1>
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2; font-size: large;">ÖĞRENCİ DÜZENLEME</h1>
 
 @using (Html.BeginForm("StudentUpdate", "Home", FormMethod.Post))
 {
-<div class="form-group">
+<div style="color: #7e3af2;font-weight:bold;" class="form-group">
     @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
     <br />
-    @Html.LabelForModel("Öğrenci Adı:")
+    @Html.Label("Öğrenci Adı:")
     @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.İsim)
+    @Html.ValidationMessageFor(x => x.İsim, "", new { @class = "text-danger font-weight-bold" })
     <br />
     @Html.Label("Öğrenci Soyadı:")
     @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Soyisim)
+    @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "text-danger font-weight-bold" })
     <br />
     @Html.Label("Öğrenci TC Kimlik Numarası:")
     @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.TCKimlikNumarasi)
+    @Html.ValidationMessageFor(x => x.TCKimlikNumarasi, "", new { @class = "text-danger font-weight-bold" })
     <br />
     @Html.Label("Okul Numarası:")
     @Html.TextBoxFor(x => x.OkulNumarasi, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.OkulNumarasi)
+    @Html.ValidationMessageFor(x => x.OkulNumarasi, "", new { @class = "text-danger font-weight-bold" })
     <br />
     @Html.Label("Sınıfı:")
     @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Sinif)
+    @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
     <br />
+    @Html.Label("Tanımlanmış Eğitim Seti:")
+    @Html.DropDownListFor(x => x.StudentID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
     <br />
     <button class="btn btn-success">Değişiklikleri Kaydet</button>
 </div>

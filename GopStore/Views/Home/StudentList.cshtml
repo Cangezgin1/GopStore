@@ -10,20 +10,21 @@
 
 <body>
     <br />
-    <h1 style="font-weight: bold; text-align: center; color: #7e3af2">ÖĞRENCİ LİSTESİ</h1>
+    <h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large">ÖĞRENCİ LİSTESİ</h1>
     <br /><br />
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
-                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                        <th class="px-4 py-3">StudentID</th>
-                        <th class="px-4 py-3">İsim Soyisim</th>
-                        <th class="px-4 py-3">TC Kimlik Numarasi</th>
-                        <th class="px-4 py-3">Okul Numarası</th>
-                        <th class="px-4 py-3">Sınıfı</th>
-                        <th class="px-4 py-3">Güncelle</th>
-                        <th class="px-4 py-3">Sil</th>
+                    <tr style="color:black;font-weight:bold;" class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                        <th class="px-3 py-3">ID</th>
+                        <th class="px-3 py-3">İsim Soyisim</th>
+                        <th class="px-3 py-3">TC Kimlik No</th>
+                        <th class="px-3 py-1">Okul No</th>
+                        <th class="px-3 py-3">Sınıfı</th>
+                        <th class="px-3 py-3">Eğitim Seti</th>
+                        <th class="px-3 py-3">Güncelle</th>
+                        <th class="px-3 py-3">Sil</th>
                     </tr>
                 </thead>
                 @foreach (var item in Model)
@@ -31,11 +32,11 @@
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                         <tr class="text-gray-700 dark:text-gray-400">
 
-                            <td class="px-4 py-3 text-sm">
+                            <td class="px-3 py-3 text-sm">
                                 @item.StudentID
                             </td>
 
-                            <td class="px-4 py-3">
+                            <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
                                     <div>
                                         <p class="font-semibold">@item.İsim @item.Soyisim</p>
@@ -43,24 +44,32 @@
                                 </div>
                             </td>
 
-                            <td class="px-4 py-3 text-sm">
+                            <td class="px-3 py-3 text-sm">
                                 @item.TCKimlikNumarasi
                             </td>
 
-                            <td class="px-4 py-3 text-sm">
+                            <td class="px-3 py-1 text-sm">
                                 @item.OkulNumarasi
                             </td>
 
-                            <td class="px-4 py-3 text-sm">
+                            <td class="px-3 py-3 text-sm">
                                 @item.Sinif
                             </td>
 
-                            <td class="px-4 py-3 text-xs">
+
+                            <td class="px-3 py-3 text-sm" style="text-align:center">
+                                @foreach (var setId in @item.students_Setlers.Where(x => x.StudentID == item.StudentID).ToList())
+                                {
+                                <p style="font-weight:bold;">@setId.SetID</p>
+                                }
+                            </td>
+
+                            <td class="px-3 py-3 text-xs">
                                 <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                     <a href="/Home/StudentUpdate/@item.StudentID">Güncelle</a>
                                 </span>
                             </td>
-                            <td class="px-4 py-3 text-xs">
+                            <td class="px-3 py-3 text-xs">
                                 <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                     <a href="/Home/StudentDelete/@item.StudentID">Sil</a>
                                 </span>

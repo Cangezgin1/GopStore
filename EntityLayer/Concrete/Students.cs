@@ -24,6 +24,6 @@ namespace EntityLayer.Concrete
         public bool? Status { get; set; }
 
 
-        public ICollection<Students_Setler> Users_Setlers { get; set; }
+        public ICollection<Students_Setler> students_Setlers { get; set; }
     }
 }

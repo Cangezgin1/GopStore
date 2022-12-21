@@ -28,17 +28,17 @@ namespace BusinessLayer.Concrete
             return _setlerDal.List();
         }
 
-        public void WriterAdd(Setler setler)
+        public void SetAdd(Setler setler)
         {
             _setlerDal.Insert(setler);
         }
 
-        public void WriterDelete(Setler setler)
+        public void SetDelete(Setler setler)
         {
             _setlerDal.Delete(setler);
         }
 
-        public void WriterUpdate(Setler setler)
+        public void SetUpdate(Setler setler)
         {
             _setlerDal.Update(setler);
         }

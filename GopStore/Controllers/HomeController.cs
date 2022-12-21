@@ -10,19 +10,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GopStore.Controllers
 {
     public class HomeController : Controller
     {
+        Context c = new Context();
+
+
         AdminsManager am = new AdminsManager(new EfAdminsDal());
+        StudentsManager sm = new StudentsManager(new EfStudentsDal(),new EfStudents_SetlerDal());
+        SetlerManager setm = new SetlerManager(new EfSetlerDal());
+        Students_SetlerManager ss = new Students_SetlerManager(new EfStudents_SetlerDal());
 
         AdminValidator adminvalidator = new AdminValidator();
         StudentValidator studentvalidator = new StudentValidator();
-
-        StudentsManager sm = new StudentsManager(new EfStudentsDal());
-
-        Context c = new Context();
+        SetValidator setvalidator = new SetValidator();
 
 
         #region AdminProfil
@@ -51,11 +55,38 @@ namespace GopStore.Controllers
         }
         #endregion
 
-        #region Student Listesi
-        public IActionResult StudentList()   
+        #region Student List
+        
+        public IActionResult StudentList()
         {
-            var values = c.Students.Where(x=>x.Status == true).ToList();
+            var values = sm.GetList();
             return View(values);
+        }
+        
+        #endregion
+
+        #region Student Add
+        [HttpGet]
+        public IActionResult StudentAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult StudentAdd(Students students)
+        {
+            ValidationResult result = studentvalidator.Validate(students);
+
+            if (result.IsValid)
+            {
+                sm.StudentAdd(students);
+                return RedirectToAction("StudentList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
         }
         #endregion
 
@@ -63,6 +94,14 @@ namespace GopStore.Controllers
         [HttpGet]
         public IActionResult StudentUpdate(int id)
         {
+            List<SelectListItem> valuesSet = (from x in ss.GetList().Where(x=>x.StudentID==id)
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.SetID.ToString()
+                                              }).ToList();
+
+            ViewBag.valuesSet = valuesSet;
+
             var values = sm.GetById(id);
             return View(values);
         }
@@ -93,21 +132,33 @@ namespace GopStore.Controllers
         }
         #endregion
 
-        #region Student Add
+        #region Set List
+
         [HttpGet]
-        public IActionResult StudentAdd()
+        public IActionResult SetList()
+        {
+            var values = c.Setlers.ToList();
+            return View(values);
+        }
+
+        #endregion
+
+        #region Set Add
+
+        [HttpGet]
+        public IActionResult SetAdd()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult StudentAdd(Students students)
+        public IActionResult SetAdd(Setler setler)
         {
-            ValidationResult result = studentvalidator.Validate(students);
+            ValidationResult result = setvalidator.Validate(setler);
 
             if (result.IsValid)
             {
-                sm.StudentAdd(students);
-                return RedirectToAction("StudentList");
+                setm.SetAdd(setler);
+                return RedirectToAction("SetList");
             }
             else
             {
@@ -116,6 +167,45 @@ namespace GopStore.Controllers
             }
             return View();
         }
+
+        #endregion
+
+        #region Set Update
+
+        [HttpGet]
+        public IActionResult SetUpdate(int id)
+        {
+            var values = setm.GetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult SetUpdate(Setler setler)
+        {
+            ValidationResult result = setvalidator.Validate(setler);
+            if (result.IsValid)
+            {
+                setm.SetUpdate(setler);
+                return RedirectToAction("SetList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+        }
+
+        #endregion
+
+        #region Set Delete
+
+        public IActionResult SetDelete(int id)
+        {
+            var values = setm.GetById(id);
+            setm.SetDelete(values);
+            return RedirectToAction("SetList");
+        }
+
         #endregion
     }
 }

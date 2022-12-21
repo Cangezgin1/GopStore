@@ -8,28 +8,28 @@
 
 <br />
 
-<h1 style="font-weight: bold; text-align: center; color: #7e3af2">PROFİL DÜZENLEME</h1>
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large;">PROFİL DÜZENLEME</h1>
 
 @using (Html.BeginForm("Profil", "Home", FormMethod.Post))
 {
-    <div class="form-group">
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
         @Html.HiddenFor(x => x.AdminID, new { @class = "form-control" })
         <br />
-        @Html.LabelForModel("Admin adı")
+        @Html.LabelForModel("Admin Adı:")
         @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.İsim)
+        @Html.ValidationMessageFor(x => x.İsim, "", new { @class = "text-danger font-weight-bold" })
         <br />
-        @Html.Label("Admin Soyadı")
+        @Html.Label("Admin Soyadı:")
         @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.Soyisim)
+        @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "text-danger font-weight-bold" })
         <br />
-        @Html.Label("Admin Mail")
+        @Html.Label("Admin Mail:")
         @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.AdminMail)
+        @Html.ValidationMessageFor(x => x.AdminMail, "", new { @class = "text-danger font-weight-bold" })
         <br />
-        @Html.Label("Admin Şifre")
+        @Html.Label("Admin Şifre:")
         @Html.PasswordFor(x => x.AdminŞifre, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.AdminŞifre)
+        @Html.ValidationMessageFor(x => x.AdminŞifre, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <br />
         <button class="btn btn-success">Değişiklikleri Kaydet</button>

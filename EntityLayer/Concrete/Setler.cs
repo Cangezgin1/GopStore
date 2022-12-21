@@ -18,7 +18,8 @@ namespace EntityLayer.Concrete
         public double Fiyat { get; set; }
         [StringLength(10)]
         public string Sinif { get; set; }
+        public string SetImage { get; set; }
 
-        public ICollection<Students_Setler> Users_Setlers { get; set; }
+        public ICollection<Students_Setler> students_Setlers { get; set; }
     }
 }

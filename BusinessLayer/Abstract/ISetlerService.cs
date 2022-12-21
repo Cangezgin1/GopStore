@@ -11,11 +11,11 @@ namespace BusinessLayer.Abstract
     {
         List<Setler> GetList();
 
-        void WriterAdd(Setler setler);
+        void SetAdd(Setler setler);
 
-        void WriterDelete(Setler setler);
+        void SetDelete(Setler setler);
 
-        void WriterUpdate(Setler setler);
+        void SetUpdate(Setler setler);
 
         Setler GetById(int id);
     }
