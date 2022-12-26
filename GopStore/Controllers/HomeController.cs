@@ -16,17 +16,30 @@ namespace GopStore.Controllers
 {
     public class HomeController : Controller
     {
-        Context c = new Context();
 
+        #region MANAGER'LER
 
         AdminsManager am = new AdminsManager(new EfAdminsDal());
-        StudentsManager sm = new StudentsManager(new EfStudentsDal(),new EfStudents_SetlerDal());
+        StudentsManager sm = new StudentsManager(new EfStudentsDal(), new EfStudents_SetlerDal());
         SetlerManager setm = new SetlerManager(new EfSetlerDal());
         Students_SetlerManager ss = new Students_SetlerManager(new EfStudents_SetlerDal());
+        ProductsManager pm = new ProductsManager(new EfProductsDal());
+        AdminsManager adminsManager = new AdminsManager(new EfAdminsDal());
+
+        #endregion
+
+        #region VALİDASİONLAR
 
         AdminValidator adminvalidator = new AdminValidator();
         StudentValidator studentvalidator = new StudentValidator();
         SetValidator setvalidator = new SetValidator();
+        ProductsValidator productsvalidator = new ProductsValidator();
+
+        #endregion
+
+
+
+
 
 
         #region AdminProfil
@@ -55,14 +68,65 @@ namespace GopStore.Controllers
         }
         #endregion
 
+        #region Admin List
+
+        public IActionResult AdminList()
+        {
+            var values = adminsManager.GetList();
+            return View(values);
+        }
+
+        #endregion
+
+        #region Admin Add
+
+        [HttpGet]
+        public IActionResult AdminAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AdminAdd(Admins admins)
+        {
+            ValidationResult result = adminvalidator.Validate(admins);
+
+            if (result.IsValid)
+            {
+                adminsManager.AdminAdd(admins);
+                return RedirectToAction("AdminList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+        }
+
+        #endregion
+
+        #region Admin Delete
+
+        public IActionResult AdminDelete(int id)
+        {
+            var values = adminsManager.GetById(id);
+            adminsManager.AdminDelete(values);
+            return RedirectToAction("AdminList");
+        }
+
+        #endregion
+
+
+
+
         #region Student List
-        
+
         public IActionResult StudentList()
         {
             var values = sm.GetList();
             return View(values);
         }
-        
+
         #endregion
 
         #region Student Add
@@ -94,7 +158,7 @@ namespace GopStore.Controllers
         [HttpGet]
         public IActionResult StudentUpdate(int id)
         {
-            List<SelectListItem> valuesSet = (from x in ss.GetList().Where(x=>x.StudentID==id)
+            List<SelectListItem> valuesSet = (from x in ss.GetList().Where(x => x.StudentID == id)
                                               select new SelectListItem
                                               {
                                                   Text = x.SetID.ToString()
@@ -132,12 +196,15 @@ namespace GopStore.Controllers
         }
         #endregion
 
+
+
+
         #region Set List
 
         [HttpGet]
         public IActionResult SetList()
         {
-            var values = c.Setlers.ToList();
+            var values = setm.GetList();
             return View(values);
         }
 
@@ -204,6 +271,85 @@ namespace GopStore.Controllers
             var values = setm.GetById(id);
             setm.SetDelete(values);
             return RedirectToAction("SetList");
+        }
+
+        #endregion
+
+
+
+
+        #region Ürün List
+
+        public IActionResult ÜrünList()
+        {
+            var values = pm.GetList();
+            return View(values);
+        }
+
+        #endregion
+
+        #region Ürün Add
+
+        [HttpGet]
+        public IActionResult ÜrünAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ÜrünAdd(Products products)
+        {
+            ValidationResult result = productsvalidator.Validate(products);
+
+            if (result.IsValid)
+            {
+                pm.ÜrünAdd(products);
+                return RedirectToAction("ÜrünList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+        }
+
+        #endregion
+
+        #region Ürün Delete
+
+        public IActionResult ÜrünDelete(int id)
+        {
+            var values = pm.GetById(id);
+            pm.ÜrünDelete(values);
+            return RedirectToAction("ÜrünList");
+        }
+
+        #endregion
+
+        #region Ürün Update
+
+        [HttpGet]
+        public IActionResult ÜrünUpdate(int id)
+        {
+            var values = pm.GetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult ÜrünUpdate(Products products)
+        {
+            ValidationResult result = productsvalidator.Validate(products);
+
+            if (result.IsValid)
+            {
+                pm.ÜrünUpdate(products);
+                return RedirectToAction("ÜrünList");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
         }
 
         #endregion

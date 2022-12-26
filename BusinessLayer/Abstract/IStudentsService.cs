@@ -17,6 +17,6 @@ namespace BusinessLayer.Abstract
         
         void StudentUpdate(Students users);
 
-        Students GetById(int id);
+        Students GetById(int? id);
     }
 }

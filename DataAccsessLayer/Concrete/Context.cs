@@ -18,6 +18,7 @@ namespace DataAccsessLayer.Concrete
         public DbSet<Students> Students { get; set; }
         public DbSet<Setler> Setlers { get; set; }
         public DbSet<Admins> Admins{ get; set; }
+        public DbSet<Products> Products{ get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)   // Çoka çok bağlantı için method oluşturuyorum çünkü

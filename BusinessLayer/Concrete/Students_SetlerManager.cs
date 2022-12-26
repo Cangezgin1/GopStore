@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _users_SetlerDal = users_SetlerDal;
         }
 
-        public Students_Setler GetById(int id)   // DEĞİŞTİRİLEBİLİR.....
+        public Students_Setler GetById(int? id)   // DEĞİŞTİRİLEBİLİR.....
         {
             return _users_SetlerDal.Get(x=>x.StudentID == id);
         }
@@ -28,17 +28,17 @@ namespace BusinessLayer.Concrete
             return _users_SetlerDal.List();
         }
 
-        public void WriterAdd(Students_Setler users_Setler)
+        public void StudentSetlerAdd(Students_Setler users_Setler)
         {
             _users_SetlerDal.Insert(users_Setler);
         }
 
-        public void WriterDelete(Students_Setler users_Setler)
+        public void StudentSetlerDelete(Students_Setler users_Setler)
         {
             _users_SetlerDal.Delete(users_Setler);
         }
 
-        public void WriterUpdate(Students_Setler users_Setler)
+        public void StudentSetlerUpdate(Students_Setler users_Setler)
         {
             _users_SetlerDal.Update(users_Setler);
         }

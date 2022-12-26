@@ -55,7 +55,7 @@ namespace GopStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=AdminLogin}/{id?}");
+                    pattern: "{controller=Login}/{action=StudentLogin}/{id?}");
             });
         }
     }

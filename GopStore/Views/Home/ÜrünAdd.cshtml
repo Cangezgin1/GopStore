@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Products 
+
+@{
+    ViewData["Title"] = "ÜrünAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large">EĞİTİM SETİ EKLEME SAYFASI</h1>
+
+@using (Html.BeginForm("ÜrünUpdate", "Home", FormMethod.Post))
+{
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
+        @Html.HiddenFor(x => x.ÜrünID, new { @class = "form-control" })
+        <br />
+        <p>Ürün Adı:</p>
+        @Html.TextBoxFor(x => x.ÜrünAdı, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ÜrünAdı, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Ürün Bilgisi:</p>
+        @Html.TextBoxFor(x => x.ÜrünBilgisi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ÜrünBilgisi, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Ürün Fiyatı:</p>
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Fiyat, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <p>Ürün Resmi:</p>
+        @Html.TextBoxFor(x => x.ÜrünImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ÜrünImage, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <br />
+        <button class="btn btn-success">EKLE</button>
+    </div>
+}
+

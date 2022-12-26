@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Admins
+
+@{
+    ViewData["Title"] = "AdminAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large;">ADMİN EKLEME</h1>
+
+@using (Html.BeginForm("AdminAdd", "Home", FormMethod.Post))
+{
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
+        @Html.HiddenFor(x => x.AdminID, new { @class = "form-control" })
+        <br />
+        @Html.LabelForModel("Admin Adı:")
+        @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.İsim, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        @Html.Label("Admin Soyadı:")
+        @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        @Html.Label("Admin Mail:")
+        @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminMail, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        @Html.Label("Admin Şifre:")
+        @Html.PasswordFor(x => x.AdminŞifre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminŞifre, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <br />
+        <button class="btn btn-success">EKLE</button>
+    </div>
+}
+

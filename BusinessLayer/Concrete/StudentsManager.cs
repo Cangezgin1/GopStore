@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
             _students_SetlerDal = students_SetlerDal;
         }
 
-        public Students GetById(int id)
+        public Students GetById(int? id)
         {
             return _usersDal.Get(x => x.StudentID == id);
         }

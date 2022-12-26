@@ -17,6 +17,6 @@ namespace BusinessLayer.Abstract
 
         void SetUpdate(Setler setler);
 
-        Setler GetById(int id);
+        Setler GetById(int? id);
     }
 }

@@ -11,9 +11,9 @@ namespace BusinessLayer.Abstract
     {
         List<Students_Setler> GetList();
 
-        void WriterAdd(Students_Setler users_Setler);
-        void WriterDelete(Students_Setler users_Setler);
-        void WriterUpdate(Students_Setler users_Setler);
-        Students_Setler GetById(int id);
+        void StudentSetlerAdd(Students_Setler users_Setler);
+        void StudentSetlerDelete(Students_Setler users_Setler);
+        void StudentSetlerUpdate(Students_Setler users_Setler);
+        Students_Setler GetById(int? id);
     }
 }

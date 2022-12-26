@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _setlerDal = setlerDal;
         }
 
-        public Setler GetById(int id)
+        public Setler GetById(int? id)
         {
             return _setlerDal.Get(x=>x.SetID == id);
         }

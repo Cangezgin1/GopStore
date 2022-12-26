@@ -17,6 +17,10 @@ namespace GopStore.Controllers
     public class LoginController : Controller
     {
         AdminLoginManager alm = new AdminLoginManager(new EfAdminsDal());
+        StudentLoginManager slm = new StudentLoginManager(new EfStudentDal());
+
+
+        #region AdminLogin
 
         [HttpGet]
         public IActionResult AdminLogin()
@@ -27,7 +31,7 @@ namespace GopStore.Controllers
         [HttpPost]
         public IActionResult AdminLogin(Admins a)
         {
-            var adminkontrol = alm.GetAdmin(a.AdminMail,a.AdminŞifre);
+            var adminkontrol = alm.GetAdmin(a.AdminMail, a.AdminŞifre);
 
             if (adminkontrol != null)
             {
@@ -39,5 +43,30 @@ namespace GopStore.Controllers
                 return RedirectToAction("AdminLogin");
         }
 
+        #endregion
+
+
+        #region StudentLogin
+
+        [HttpGet]
+        public IActionResult StudentLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult StudentLogin(Students students)
+        {
+            var studentkontrol = slm.GetStudent(students.İsim, students.Soyisim, students.TCKimlikNumarasi, students.OkulNumarasi);
+
+            if (studentkontrol != null)
+            {
+                HttpContext.Session.SetInt32("StudentID", studentkontrol.StudentID);
+                return RedirectToAction("AnaSayfa", "Student");
+            }
+            else
+                return RedirectToAction("StudentLogin");
+        }
+
+        #endregion
     }
 }
