@@ -16,6 +16,7 @@ namespace GopStore.Controllers
 {
     public class HomeController : Controller
     {
+        Context c = new Context();
 
         #region MANAGER'LER
 
@@ -36,8 +37,6 @@ namespace GopStore.Controllers
         ProductsValidator productsvalidator = new ProductsValidator();
 
         #endregion
-
-
 
 
 
@@ -68,7 +67,7 @@ namespace GopStore.Controllers
         }
         #endregion
 
-        #region Admin List
+        #region Admin Listeleme
 
         public IActionResult AdminList()
         {
@@ -78,7 +77,7 @@ namespace GopStore.Controllers
 
         #endregion
 
-        #region Admin Add
+        #region Admin Ekleme
 
         [HttpGet]
         public IActionResult AdminAdd()
@@ -105,7 +104,7 @@ namespace GopStore.Controllers
 
         #endregion
 
-        #region Admin Delete
+        #region Admin Silme
 
         public IActionResult AdminDelete(int id)
         {
@@ -119,12 +118,62 @@ namespace GopStore.Controllers
 
 
 
-        #region Student List
+        #region Student Listeleme
 
         public IActionResult StudentList()
         {
             var values = sm.GetList();
             return View(values);
+        }
+
+        #endregion
+
+        #region Öğrenciye Set Ekleme
+
+        [HttpGet]
+        public IActionResult StudentSetAdd(int id)
+        {
+            List<SelectListItem> valuesSet = (from x in setm.GetList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.SetID.ToString()
+                                              }).ToList();
+
+            ViewBag.valuesSet = valuesSet;
+
+            var values = ss.GetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult StudentSetAdd(Students_Setler students_Setler)
+        {
+            ss.StudentSetlerAdd(students_Setler);
+            return RedirectToAction("StudentList");
+        }
+
+        #endregion
+
+        #region Öğrenci Eğitim Seti Çıkarma
+
+        [HttpGet]
+        public IActionResult StudentSetDelete(int id)
+        {
+            List<SelectListItem> valuesSet = (from x in setm.GetList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.SetID.ToString()
+                                              }).ToList();
+
+            ViewBag.valuesSet = valuesSet;
+
+            var values = ss.GetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult StudentSetDelete(Students_Setler students_Setler)
+        {
+            ss.StudentSetlerDelete(students_Setler);
+            return RedirectToAction("StudentList");
         }
 
         #endregion

@@ -14,24 +14,27 @@
 <br />
 @foreach (var item in Model)
 {
-    <div class="grid gap-6 mb-8 md:grid-cols-1 xl:grid-cols-12">
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-            <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg orange-500">
-                <image style="width:130px;height:130px;" src="@item.ÜrünImage"></image>
-            </div>
-            <div>
-                <p style="font-size:large;font-weight:bold" class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                    @item.ÜrünAdı <br />
-                    @item.Fiyat₺
-                </p>
-                <p style="font-size:medium;">
-                    @item.ÜrünBilgisi <br /><br />
-                    <a class="btn btn-outline-success">SATIN AL</a>
-                </p>
-            </div>
+<div class="grid gap-6 mb-8 md:grid-cols-1 xl:grid-cols-12">
+    <div style="background-color: white !important; " class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+
+        <div class="p-3 mr-4 text-orange-500 rounded-full dark:text-orange-100 dark:bg orange-500">
+            <image style="width:130px;height:130px;" src="@item.ÜrünImage"></image>
         </div>
-        <a href="/Home/ÜrünUpdate/@item.ÜrünID" class="btn btn-success">Güncelle</a>
-        <a href="/Home/ÜrünDelete/@item.ÜrünID" class="btn btn-danger">Sil</a>
+
+        <div>
+            <p style="font-size:large;font-weight:bold" class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                @item.ÜrünAdı <br />
+                @item.Fiyat₺
+            </p>
+            <p style="font-size:medium;">
+                @item.ÜrünBilgisi <br /><br />
+                <a class="btn btn-outline-success">SATIN AL</a>
+            </p>
+        </div>
+
     </div>
+    <a href="/Home/ÜrünUpdate/@item.ÜrünID" class="btn btn-success">Güncelle</a>
+    <a href="/Home/ÜrünDelete/@item.ÜrünID" class="btn btn-danger">Sil</a>
+</div>
 }
 

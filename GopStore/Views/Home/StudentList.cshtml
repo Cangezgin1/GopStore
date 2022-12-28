@@ -23,6 +23,8 @@
                         <th class="px-3 py-1">Okul No</th>
                         <th class="px-3 py-3">Sınıfı</th>
                         <th class="px-3 py-3">Eğitim Seti</th>
+                        <th class="px-3 py-3">Eğitim Seti Ekle</th>
+                        <th class="px-3 py-3">Eğitim Seti Çıkar</th>
                         <th class="px-3 py-3">Güncelle</th>
                         <th class="px-3 py-3">Sil</th>
                     </tr>
@@ -60,8 +62,20 @@
                             <td class="px-3 py-3 text-sm" style="text-align:center">
                                 @foreach (var setId in @item.students_Setlers.Where(x => x.StudentID == item.StudentID).ToList())
                                 {
-                                <p style="font-weight:bold;">@setId.SetID</p>
+                                    <p style="font-weight:bold;">@setId.SetID</p>
                                 }
+                            </td>
+
+                            <td class="px-3 py-3 text-xs">
+                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                    <a href="/Home/StudentSetAdd/@item.StudentID">Eğitim Seti Ekle</a>
+                                </span>
+                            </td>
+
+                            <td class="px-3 py-3 text-xs">
+                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                    <a href="/Home/StudentSetDelete/@item.StudentID">Eğitim Seti Çıkar</a>
+                                </span>
                             </td>
 
                             <td class="px-3 py-3 text-xs">
@@ -69,6 +83,7 @@
                                     <a href="/Home/StudentUpdate/@item.StudentID">Güncelle</a>
                                 </span>
                             </td>
+
                             <td class="px-3 py-3 text-xs">
                                 <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                     <a href="/Home/StudentDelete/@item.StudentID">Sil</a>

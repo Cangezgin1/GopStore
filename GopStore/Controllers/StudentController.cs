@@ -15,6 +15,8 @@ namespace GopStore.Controllers
     public class StudentController : Controller
     {
         StudentsManager sm = new StudentsManager(new EfStudentsDal(), new EfStudents_SetlerDal());
+        ProductsManager pm = new ProductsManager(new EfProductsDal());
+
 
         Context c = new Context();
 
@@ -29,20 +31,25 @@ namespace GopStore.Controllers
 
         #endregion
 
-        #region Eğitim Seti
+        #region Eğitim Seti Öğrenciye göre Listelenmesi
 
         [HttpGet]
         public IActionResult SetList()
         {
             var sessionid = HttpContext.Session.GetInt32("StudentID");
 
-            //var Students_SetlerList = from sS in Students_Setler
-            //                          select new {
-            //                              İsim = sS.Students.İsim,
+            var values = c.Students.Include(x => x.students_Setlers).ThenInclude(y => y.Setler).Where(x => x.StudentID == sessionid).ToList();
+            return View(values);
+        }
 
-            //                          };
+        #endregion
 
-            return View();
+        #region Ürünlerin Listelenmesi
+
+        public IActionResult ÜrünList()
+        {
+            var values = pm.GetList();
+            return View(values);
         }
 
         #endregion

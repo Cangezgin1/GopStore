@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Products> 
+
+
+@{
+    ViewData["Title"] = "ÜrünList";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<br />
+
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large">ÜRÜNLER</h1>
+<br />
+<br />
+@foreach (var item in Model)
+{
+    <div class="grid gap-6 mb-8 md:grid-cols-1 xl:grid-cols-12">
+        <div style="background-color: white !important; " class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+
+            <div class="p-3 mr-4 text-orange-500 rounded-full dark:text-orange-100 dark:bg orange-500">
+                <image style="width:150px;height:150px;" src="@item.ÜrünImage"></image>
+            </div>
+
+            <div>
+                <p style="font-size:large;font-weight:bold" class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    @item.ÜrünAdı <br />
+                    @item.Fiyat₺
+                </p>
+                <p style="font-size:medium;">
+                    @item.ÜrünBilgisi <br /><br />
+                    <a class="btn btn-outline-success">SATIN AL</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+}
+

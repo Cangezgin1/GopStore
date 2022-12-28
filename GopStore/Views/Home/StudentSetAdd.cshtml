@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Students_Setler
+
+@{
+    ViewData["Title"] = "AdminAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large;">ÖĞRENCİYE EĞİTİM SETİ EKLEME</h1>
+
+<br />
+
+@using (Html.BeginForm("StudentSetAdd", "Home", FormMethod.Post))
+{
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
+        @Html.Label("Öğrenci ID:")
+        @Html.TextBoxFor(x => x.StudentID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tanımlanacak Eğitim Setini Seçiniz:")
+        @Html.DropDownListFor(x => x.SetID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
+        <p style="font-weight: bold; color: black; font-size: medium;">NOT : Lütfen öğrenciye zaten tanımlı olan seti seçmeyiniz!</p>
+        <br />
+        <br />
+        <button class="btn btn-success">EKLE</button>
+    </div>
+}

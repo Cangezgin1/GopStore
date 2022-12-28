@@ -28,7 +28,7 @@ namespace DataAccsessLayer.Concrete.Repositories
 
         public T Get(Expression<Func<T, bool>> filter)
         {
-            return _object.SingleOrDefault(filter);
+            return _object.FirstOrDefault(filter); // SingleOrDefault
         }
 
         public void Insert(T p)

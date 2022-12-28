@@ -49,6 +49,7 @@ namespace BusinessLayer.Concrete
 
         public void StudentUpdate(Students users)
         {
+            users.Status = true;
             _usersDal.Update(users);
         }
     }
