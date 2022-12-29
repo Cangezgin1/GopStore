@@ -38,13 +38,15 @@ namespace GopStore.Controllers
 
         #endregion
 
-
+        
 
 
         #region AdminProfil
         [HttpGet]
         public IActionResult Profil()
         {
+            
+
             var sessionid = HttpContext.Session.GetInt32("AdminID");
             var values = am.GetById(sessionid);
             return View(values);
@@ -144,11 +146,12 @@ namespace GopStore.Controllers
             var values = ss.GetById(id);
             return View(values);
         }
+
         [HttpPost]
         public IActionResult StudentSetAdd(Students_Setler students_Setler)
         {
-            ss.StudentSetlerAdd(students_Setler);
-            return RedirectToAction("StudentList");
+                ss.StudentSetlerAdd(students_Setler);
+                return RedirectToAction("StudentList");
         }
 
         #endregion
