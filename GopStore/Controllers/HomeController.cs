@@ -18,6 +18,7 @@ namespace GopStore.Controllers
     {
         Context c = new Context();
 
+
         #region MANAGER'LER
 
         AdminsManager am = new AdminsManager(new EfAdminsDal());
@@ -38,14 +39,14 @@ namespace GopStore.Controllers
 
         #endregion
 
-        
+
 
 
         #region AdminProfil
         [HttpGet]
         public IActionResult Profil()
         {
-            
+
 
             var sessionid = HttpContext.Session.GetInt32("AdminID");
             var values = am.GetById(sessionid);
@@ -134,12 +135,19 @@ namespace GopStore.Controllers
 
         [HttpGet]
         public IActionResult StudentSetAdd(int id)
-        {
-            List<SelectListItem> valuesSet = (from x in setm.GetList()
+        {//1, 3
+            var delist = ss.GetList().Where(x => x.StudentID == id).ToList().Select(x=>x.SetID);//delist edilmesi gereken liste olması gerekiyor
+            var zartzurt = setm.GetList();
+            var deneme = zartzurt.Select(y => !y.SetID.Equals(delist)).ToList();/// tüm listeden tek tek sorgula setid notequal(1,3)
+ 
+             List <SelectListItem> valuesSet = (from x in setm.GetList().Where(y => !y.SetID.Equals(ss.GetList().Where(x => x.StudentID == id).ToList()))
                                               select new SelectListItem
                                               {
                                                   Text = x.SetID.ToString()
+
                                               }).ToList();
+
+
 
             ViewBag.valuesSet = valuesSet;
 
@@ -150,8 +158,9 @@ namespace GopStore.Controllers
         [HttpPost]
         public IActionResult StudentSetAdd(Students_Setler students_Setler)
         {
-                ss.StudentSetlerAdd(students_Setler);
-                return RedirectToAction("StudentList");
+
+            ss.StudentSetlerAdd(students_Setler);
+            return RedirectToAction("StudentList");
         }
 
         #endregion
