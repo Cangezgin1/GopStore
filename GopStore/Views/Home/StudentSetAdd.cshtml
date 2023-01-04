@@ -18,8 +18,7 @@
         @Html.TextBoxFor(x => x.StudentID, new { @class = "form-control" })
         <br />
         @Html.Label("Tanımlanacak Eğitim Setini Seçiniz:")
-        @Html.DropDownListFor(x => x.Setler.SetAdi, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
-        <p style="font-weight: bold; color: black; font-size: medium;">NOT : Lütfen öğrenciye zaten tanımlı olan seti seçmeyiniz!</p>
+        @Html.DropDownListFor(x => x.SetID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
         <br />
         <br />
         <button class="btn btn-success">EKLE</button>

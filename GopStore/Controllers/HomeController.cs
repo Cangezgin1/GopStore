@@ -16,7 +16,6 @@ namespace GopStore.Controllers
 {
     public class HomeController : Controller
     {
-        Context c = new Context();
 
 
         #region MANAGER'LER
@@ -36,6 +35,7 @@ namespace GopStore.Controllers
         StudentValidator studentvalidator = new StudentValidator();
         SetValidator setvalidator = new SetValidator();
         ProductsValidator productsvalidator = new ProductsValidator();
+        Student_SetValidator student_setlervalidator = new Student_SetValidator();
 
         #endregion
 
@@ -135,12 +135,10 @@ namespace GopStore.Controllers
 
         [HttpGet]
         public IActionResult StudentSetAdd(int id)
-        {//1, 3
-            var delist = ss.GetList().Where(x => x.StudentID == id).ToList().Select(x=>x.SetID);//delist edilmesi gereken liste olması gerekiyor
-            var zartzurt = setm.GetList();
-            var deneme = zartzurt.Select(y => !y.SetID.Equals(delist)).ToList();/// tüm listeden tek tek sorgula setid notequal(1,3)
- 
-             List <SelectListItem> valuesSet = (from x in setm.GetList().Where(y => !y.SetID.Equals(ss.GetList().Where(x => x.StudentID == id).ToList()))
+        {
+            var delist = ss.GetList().Where(x => x.StudentID == id).ToList().Select(x => x.SetID); //öğrenciye ekli olan setıdler bulunuyor.
+
+            List<SelectListItem> valuesSet = (from x in setm.GetList().Where(y => !delist.Contains(y.SetID)) // Öğrenciye kayıtlı olan setıdler gelmiyor.
                                               select new SelectListItem
                                               {
                                                   Text = x.SetID.ToString()
@@ -158,19 +156,18 @@ namespace GopStore.Controllers
         [HttpPost]
         public IActionResult StudentSetAdd(Students_Setler students_Setler)
         {
-
             ss.StudentSetlerAdd(students_Setler);
             return RedirectToAction("StudentList");
         }
 
-        #endregion
+        #endregion 
 
         #region Öğrenci Eğitim Seti Çıkarma
 
         [HttpGet]
         public IActionResult StudentSetDelete(int id)
         {
-            List<SelectListItem> valuesSet = (from x in setm.GetList()
+            List<SelectListItem> valuesSet = (from x in ss.GetList().Where(x => x.StudentID == id)
                                               select new SelectListItem
                                               {
                                                   Text = x.SetID.ToString()

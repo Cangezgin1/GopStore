@@ -17,7 +17,7 @@
         @Html.Label("Öğrenci ID:")
         @Html.TextBoxFor(x => x.StudentID, new { @class = "form-control" })
         <br />
-        @Html.Label("Tanımlanacak Eğitim Setini Seçiniz:")
+        @Html.Label("Silinecek Eğitim Setini Seçiniz:")
         @Html.DropDownListFor(x => x.SetID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
         <br />
         <br />

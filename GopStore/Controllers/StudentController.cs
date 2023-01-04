@@ -14,11 +14,10 @@ namespace GopStore.Controllers
 {
     public class StudentController : Controller
     {
+        Context c = new Context();
+
         StudentsManager sm = new StudentsManager(new EfStudentsDal(), new EfStudents_SetlerDal());
         ProductsManager pm = new ProductsManager(new EfProductsDal());
-
-
-        Context c = new Context();
 
         #region Ana Sayfa
 

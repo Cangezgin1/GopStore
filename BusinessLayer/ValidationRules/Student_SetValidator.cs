@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules
 {
-    class Student_SetValidator : AbstractValidator<Students_Setler>
+    public class Student_SetValidator : AbstractValidator<Students_Setler>
     {
         public Student_SetValidator()
         {
-            
+            RuleFor(x => x.StudentID).NotEmpty().WithMessage("Öğrenci ID Boş olmamalıdır.");
+            RuleFor(x => x.SetID).NotEmpty().WithMessage("SetID Boş olmamalıdır.");
         }
     }
 }
