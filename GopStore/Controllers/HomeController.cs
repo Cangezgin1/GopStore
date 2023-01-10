@@ -11,12 +11,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace GopStore.Controllers
 {
     public class HomeController : Controller
     {
-
+        Context c = new Context();
 
         #region MANAGER'LER
 
@@ -145,8 +146,6 @@ namespace GopStore.Controllers
 
                                               }).ToList();
 
-
-
             ViewBag.valuesSet = valuesSet;
 
             var values = ss.GetById(id);
@@ -188,9 +187,18 @@ namespace GopStore.Controllers
         #endregion
 
         #region Student Add
+
         [HttpGet]
         public IActionResult StudentAdd()
         {
+            //List<SelectListItem> valuesSet = (from x in setm.GetList()
+            //                                  select new SelectListItem
+            //                                  {
+            //                                      Text = x.SetID.ToString()
+            //                                  }).ToList();
+
+            //ViewBag.valuesSet = valuesSet;
+
             return View();
         }
         [HttpPost]
@@ -210,6 +218,7 @@ namespace GopStore.Controllers
             }
             return View();
         }
+
         #endregion
 
         #region Student Update

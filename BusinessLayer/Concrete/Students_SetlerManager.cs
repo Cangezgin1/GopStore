@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
             _users_SetlerDal.Insert(users_Setler);
         }
 
+        public void StudentSetlerAdd2(Students_Setler users_Setler)
+        {
+            _users_SetlerDal.Insert(users_Setler);
+        }
+
         public void StudentSetlerDelete(Students_Setler users_Setler)
         {
             _users_SetlerDal.Delete(users_Setler);

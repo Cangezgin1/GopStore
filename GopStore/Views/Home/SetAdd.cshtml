@@ -15,24 +15,24 @@
         @Html.HiddenFor(x => x.SetID, new { @class = "form-control" })
         <br />
         <p>Set Adı:</p>
-        @Html.TextBoxFor(x => x.SetAdi, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.SetAdi, new { placeholder = "örn:5.Sınıf Eğitim Seti", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.SetAdi, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Set Bilgisi:</p>
-        @Html.TextBoxFor(x => x.SetBilgisi, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.SetBilgisi, new { placeholder = "örn:Tüm Dersler", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.SetBilgisi, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Set Fiyatı:</p>
-        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Fiyat, new { placeholder = "örn: 549,99", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Fiyat, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Sınıf:</p>
-        @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
+        @Html.TextBoxFor(x => x.Sinif, new { placeholder = "örn:12-A", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Sinif, "", new {  @class = "text-danger font-weight-bold" })
         <br />
         <p>Set Resmi:</p>
-        @Html.TextBoxFor(x => x.SetImage, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.SetImage, "", new { @class = "text-danger font-weight-bold" })
+        @Html.TextBoxFor(x => x.SetImage, new { placeholder = "örn: https://resimadresi.jpg", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SetImage, "", new {  @class = "text-danger font-weight-bold" })
         <br />
         <br />
         <button class="btn btn-success">EKLE</button>

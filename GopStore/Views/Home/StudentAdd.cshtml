@@ -23,7 +23,7 @@
         @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "text-danger font-weight-bold" })
         <br />
         @Html.Label("Öğrenci TC Kimlik Numarası:")
-        @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { placeholder = "11 haneli olmalıdır.", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.TCKimlikNumarasi, "", new { @class = "text-danger font-weight-bold" })
         <br />
         @Html.Label("Okul Numarası:")
@@ -31,12 +31,12 @@
         @Html.ValidationMessageFor(x => x.OkulNumarasi, "", new { @class = "text-danger font-weight-bold" })
         <br />
         @Html.Label("Sınıfı:")
-        @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Sinif, new { placeholder = "örn: 8-A", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
+        @*<br />
+        @Html.Label("Eğitim Seti:")
+        @Html.DropDownListFor(x => x.StudentID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })*@
         <br />
-        @*@Html.Label("Eğitim Seti:")
-        @Html.TextBoxFor(x => x.students_Setlers, new { @class = "form-control" })
-        <br />*@
         <br />
         <button class="btn btn-success">KAYIT</button>
     </div>

@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Students_Setler> GetList();
 
         void StudentSetlerAdd(Students_Setler users_Setler);
+        void StudentSetlerAdd2(Students_Setler users_Setler);
         void StudentSetlerDelete(Students_Setler users_Setler);
         void StudentSetlerUpdate(Students_Setler users_Setler);
         Students_Setler GetById(int? id);

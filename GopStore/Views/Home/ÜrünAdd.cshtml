@@ -15,19 +15,19 @@
         @Html.HiddenFor(x => x.ÜrünID, new { @class = "form-control" })
         <br />
         <p>Ürün Adı:</p>
-        @Html.TextBoxFor(x => x.ÜrünAdı, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.ÜrünAdı, new { placeholder = "örn: Defter", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.ÜrünAdı, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Ürün Bilgisi:</p>
-        @Html.TextBoxFor(x => x.ÜrünBilgisi, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.ÜrünBilgisi, new { placeholder = "örn: 20x28 cm, Lastikli", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.ÜrünBilgisi, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Ürün Fiyatı:</p>
-        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Fiyat, new { placeholder = "örn: 29,99", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Fiyat, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <p>Ürün Resmi:</p>
-        @Html.TextBoxFor(x => x.ÜrünImage, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.ÜrünImage, new { placeholder = "örn: https://ürünresmi.jpg", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.ÜrünImage, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <br />

@@ -15,7 +15,7 @@
 {
     <div style="color: #7e3af2;font-weight:bold;" class="form-group">
         @Html.Label("Öğrenci ID:")
-        @Html.TextBoxFor(x => x.StudentID, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.StudentID,new { placeholder ="Lütfen ÖğrenciId giriniz.", @class = "form-control" })
         <br />
         @Html.Label("Tanımlanacak Eğitim Setini Seçiniz:")
         @Html.DropDownListFor(x => x.SetID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
@@ -24,6 +24,3 @@
         <button class="btn btn-success">EKLE</button>
     </div>
 }
-
-
-
