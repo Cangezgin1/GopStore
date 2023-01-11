@@ -142,8 +142,8 @@ namespace GopStore.Controllers
             List<SelectListItem> valuesSet = (from x in setm.GetList().Where(y => !delist.Contains(y.SetID)) // Öğrenciye kayıtlı olan setıdler gelmiyor.
                                               select new SelectListItem
                                               {
-                                                  Text = x.SetID.ToString()
-
+                                                  Text = x.SetAdi,
+                                                  Value = x.SetID.ToString()
                                               }).ToList();
 
             ViewBag.valuesSet = valuesSet;

@@ -21,5 +21,6 @@ namespace EntityLayer.Concrete
         public string SetImage { get; set; }
 
         public ICollection<Students_Setler> students_Setlers { get; set; }
+        //public int StudentID { get; set; }
     }
 }
