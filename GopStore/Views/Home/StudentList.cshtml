@@ -9,9 +9,25 @@
 
 
 <body>
+
     <br />
+    
     <h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large">ÖĞRENCİ LİSTESİ</h1>
-    <br /><br />
+    
+    <br />
+
+    @using (Html.BeginForm("StudentList", "Home", FormMethod.Get))
+     {
+        <div style="margin-top:15px;margin-bottom:15px;">
+            <b style="color: #7e3af2;font-weight:bold;">Aranacak Öğrenci Adını Giriniz: </b>
+            @Html.TextBox("p", "", new { @class = "form-control" })
+            <br />
+            <input type="submit" value="Ara" class="btn btn-success" />
+        </div>
+     }
+
+    <br />
+
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">

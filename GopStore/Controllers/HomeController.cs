@@ -124,9 +124,13 @@ namespace GopStore.Controllers
 
         #region Student Listeleme
 
-        public IActionResult StudentList()
+        public IActionResult StudentList(string p)
         {
             var values = sm.GetList();
+            if (!string.IsNullOrEmpty(p))
+            {
+                values = (List<Students>)values.Where(x => x.İsim.Contains(p)).ToList();
+            }
             return View(values);
         }
 
