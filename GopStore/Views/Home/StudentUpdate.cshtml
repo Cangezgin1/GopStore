@@ -36,8 +36,7 @@
     @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
     <br />
     @Html.Label("Tanımlanmış Eğitim Seti:")
-    @Html.DropDownListFor(x => x.StudentID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
+    @Html.DropDownListFor(x => x.students_Setlers, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })
     <br />
     <button class="btn btn-success">Değişiklikleri Kaydet</button>
 </div>

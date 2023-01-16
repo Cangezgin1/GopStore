@@ -19,7 +19,7 @@
     @using (Html.BeginForm("StudentList", "Home", FormMethod.Get))
      {
         <div style="margin-top:15px;margin-bottom:15px;">
-            <b style="color: #7e3af2;font-weight:bold;">Aranacak Öğrenci Adını Giriniz: </b>
+            <b style="color: #7e3af2;font-weight:bold;">Aranacak Öğrenci Adını veya Soyadını Giriniz: </b>
             @Html.TextBox("p", "", new { @class = "form-control" })
             <br />
             <input type="submit" value="Ara" class="btn btn-success" />

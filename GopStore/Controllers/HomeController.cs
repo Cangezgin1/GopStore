@@ -129,7 +129,7 @@ namespace GopStore.Controllers
             var values = sm.GetList();
             if (!string.IsNullOrEmpty(p))
             {
-                values = (List<Students>)values.Where(x => x.İsim.Contains(p)).ToList();
+                values = (List<Students>)values.Where(x => x.İsim.Contains(p) || x.Soyisim.Contains(p)).ToList();
             }
             return View(values);
         }
@@ -152,6 +152,15 @@ namespace GopStore.Controllers
 
             ViewBag.valuesSet = valuesSet;
 
+            List<SelectListItem> valuesStudent = (from x in sm.GetList().Where(x=>x.StudentID==id)
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.StudentID.ToString()
+                                              }).ToList();
+
+            ViewBag.valuesStudent = valuesStudent;
+
+
             var values = ss.GetById(id);
             return View(values);
         }
@@ -170,10 +179,13 @@ namespace GopStore.Controllers
         [HttpGet]
         public IActionResult StudentSetDelete(int id)
         {
-            List<SelectListItem> valuesSet = (from x in ss.GetList().Where(x => x.StudentID == id)
+            var list = ss.GetList().Where(x => x.StudentID == id).ToList().Select(x => x.SetID); //öğrenciye ekli olan setıdler bulunuyor.
+
+            List<SelectListItem> valuesSet = (from x in setm.GetList().Where(y => list.Contains(y.SetID)) // Öğrenciye kayıtlı olan setıdler geliyor.
                                               select new SelectListItem
                                               {
-                                                  Text = x.SetID.ToString()
+                                                  Text = x.SetAdi,
+                                                  Value = x.SetID.ToString()
                                               }).ToList();
 
             ViewBag.valuesSet = valuesSet;
