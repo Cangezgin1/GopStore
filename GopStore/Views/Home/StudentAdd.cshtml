@@ -33,9 +33,10 @@
         @Html.Label("Sınıfı:")
         @Html.TextBoxFor(x => x.Sinif, new { placeholder = "örn: 8-A", @class = "form-control" })
         @Html.ValidationMessageFor(x => x.Sinif, "", new { @class = "text-danger font-weight-bold" })
-        @*<br />
-        @Html.Label("Eğitim Seti:")
-        @Html.DropDownListFor(x => x.StudentID, (List<SelectListItem>)ViewBag.valuesSet, new { @class = "form-control" })*@
+        <br />
+        @Html.Label("Şifre:")
+        @Html.TextBoxFor(x => x.Sifre, new {@class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <br />
         <button class="btn btn-success">KAYIT</button>

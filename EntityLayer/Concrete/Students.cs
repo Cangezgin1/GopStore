@@ -21,6 +21,8 @@ namespace EntityLayer.Concrete
         public string OkulNumarasi { get; set; }
         [StringLength(10)]
         public string Sinif { get; set; }
+        [StringLength(6)]
+        public string Sifre { get; set; }
         public bool? Status { get; set; }
 
 

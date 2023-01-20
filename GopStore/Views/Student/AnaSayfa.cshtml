@@ -10,21 +10,42 @@
 
 <h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large;">BİLGİLERİM</h1>
 
-<div style="color: #7e3af2;font-weight:bold;" class="form-group">
-    @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
-    <br />
-    @Html.LabelForModel("Öğrenci Adı:")
-    @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
-    <br />
-    @Html.Label("Öğrenci Soyadı:")
-    @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
-    <br />
-    @Html.Label("Öğrenci TC Kimlik Numarası:")
-    @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { @class = "form-control" })
-    <br />
-    @Html.Label("Öğrenci Okul Numarası:")
-    @Html.TextBoxFor(x => x.OkulNumarasi, new { @class = "form-control" })
-    <br />
-    @Html.Label("Öğrenci Sınıfı:")
-    @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control" })
-</div>
+@using (Html.BeginForm("AnaSayfa", "Student", FormMethod.Post))
+{
+    @*@if (ViewBag.Message != null)
+    {
+        <script>
+
+        $(document).ready(function(){
+            alert('@ViewBag.Message'):
+        });
+        </script>
+
+    }*@
+    <div style="color: #7e3af2;font-weight:bold;" class="form-group">
+        @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
+        <br />
+        @Html.LabelForModel("Öğrenci Adı:")
+        @Html.TextBoxFor(x => x.İsim, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Öğrenci Soyadı:")
+        @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Öğrenci TC Kimlik Numarası:")
+        @Html.TextBoxFor(x => x.TCKimlikNumarasi, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Öğrenci Okul Numarası:")
+        @Html.TextBoxFor(x => x.OkulNumarasi, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Öğrenci Sınıfı:")
+        @Html.TextBoxFor(x => x.Sinif, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Öğrenci Şifre:")
+        @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "text-danger font-weight-bold" })
+        <br />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+

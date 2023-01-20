@@ -45,7 +45,6 @@ namespace GopStore.Controllers
 
         #endregion
 
-
         #region StudentLogin
 
         [HttpGet]
