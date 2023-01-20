@@ -7,21 +7,13 @@
 }
 
 <br />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h1 style="font-weight: bold; text-align: center; color: #7e3af2;font-size:large;">BİLGİLERİM</h1>
 
 @using (Html.BeginForm("AnaSayfa", "Student", FormMethod.Post))
 {
-    @*@if (ViewBag.Message != null)
-    {
-        <script>
-
-        $(document).ready(function(){
-            alert('@ViewBag.Message'):
-        });
-        </script>
-
-    }*@
     <div style="color: #7e3af2;font-weight:bold;" class="form-group">
         @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
         <br />
@@ -45,7 +37,15 @@
         @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "text-danger font-weight-bold" })
         <br />
         <br />
-        <button class="btn btn-success">Güncelle</button>
+        <button id="btn1" class="btn btn-success">Güncelle</button>
     </div>
 }
 
+
+<script>
+
+    $('#btn1').click(function () {
+        swal("Tebrikler!", "Şifreniz değiştirildi.", "success");
+    });
+
+</script>

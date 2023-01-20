@@ -19,8 +19,13 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.Sinif).NotEmpty().WithMessage("Sınıf boş gecilemez.");
             RuleFor(x => x.Sifre).NotEmpty().WithMessage("Şifre boş gecilemez.");
 
-            RuleFor(x => x.TCKimlikNumarasi).MaximumLength(11).WithMessage("11 Karakter olmalı.");
-            RuleFor(x => x.TCKimlikNumarasi).MinimumLength(11).WithMessage("11 Karakter olmalı.");
+
+
+            RuleFor(x => x.Sifre).MaximumLength(11).WithMessage("6 karakter olmalı.");
+            RuleFor(x => x.Sifre).MinimumLength(11).WithMessage("6 karakter olmalı.");
+
+            RuleFor(x => x.TCKimlikNumarasi).MaximumLength(11).WithMessage("11 karakter olmalı.");
+            RuleFor(x => x.TCKimlikNumarasi).MinimumLength(11).WithMessage("11 karakter olmalı.");
 
         }
     }

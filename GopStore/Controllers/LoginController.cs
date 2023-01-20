@@ -52,10 +52,14 @@ namespace GopStore.Controllers
         {
             return View();
         }
+
+
         [HttpPost]
         public IActionResult StudentLogin(Students students)
         {
             var studentkontrol = slm.GetStudent(students.İsim, students.Soyisim, students.TCKimlikNumarasi, students.OkulNumarasi);
+
+
 
             if (studentkontrol != null)
             {

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using FluentValidation.Results;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,14 +30,25 @@ namespace GopStore.Controllers
         {
             var sessionid = HttpContext.Session.GetInt32("StudentID");
             var values = sm.GetById(sessionid);
-            //ViewBag.Message = " Şifre Başarılı bir şekilde değiştirildi. ";
             return View(values);
         }
         [HttpPost]
         public IActionResult AnaSayfa(Students students)
         {
-            sm.StudentUpdate(students);
-            return RedirectToAction("SetList");
+            ValidationResult result = studentvalidator.Validate(students);
+
+            if (result.IsValid)
+            {
+                sm.StudentUpdate(students);
+                //return RedirectToAction("AnaSayfa");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+
         }
 
         #endregion
