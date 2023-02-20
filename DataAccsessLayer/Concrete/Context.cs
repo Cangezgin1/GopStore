@@ -12,7 +12,7 @@ namespace DataAccsessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=WRPNW064\\SQLEXPRESS;database=GopStoreDb;integrated security=true");
+            optionsBuilder.UseSqlServer("server=WRPNW064\\MSSQLSERVER2;database=GopStoreDb;integrated security=true");
         }
 
         public DbSet<Students> Students { get; set; }
