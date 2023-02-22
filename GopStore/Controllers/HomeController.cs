@@ -47,8 +47,6 @@ namespace GopStore.Controllers
         [HttpGet]
         public IActionResult Profil()
         {
-
-
             var sessionid = HttpContext.Session.GetInt32("AdminID");
             var values = am.GetById(sessionid);
             return View(values);
@@ -118,9 +116,6 @@ namespace GopStore.Controllers
         }
 
         #endregion
-
-
-
 
         #region Student Listeleme
 
