@@ -36,6 +36,7 @@ namespace BusinessLayer.Concrete
         public void SetDelete(Setler setler)
         {
             _setlerDal.Delete(setler);
+        //Deneme
         }
 
         public void SetUpdate(Setler setler)
