@@ -117,6 +117,7 @@ namespace GopStore.Controllers
 
         #endregion
 
+
         #region Student Listeleme
 
         public IActionResult StudentList(string p)
