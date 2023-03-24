@@ -21,7 +21,7 @@ namespace GopStore.Controllers
         StudentValidator studentvalidator = new StudentValidator();
 
         StudentsManager sm = new StudentsManager(new EfStudentsDal(), new EfStudents_SetlerDal());
-        ProductsManager pm = new ProductsManager(new EfProductsDal());
+        ProductsManager pm = new ProductsManager(new EfProductsDal()); 
 
         #region Ana Sayfa
 
