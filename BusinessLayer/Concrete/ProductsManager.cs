@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete
         {
             return _productsDal.Get(x=>x.ÜrünID==id);
         }
-
+ 
         public List<Products> GetList()
         {
             return _productsDal.List();
