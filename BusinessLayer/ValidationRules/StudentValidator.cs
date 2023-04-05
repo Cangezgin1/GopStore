@@ -18,7 +18,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.OkulNumarasi).NotEmpty().WithMessage("Okul Numarası boş gecilemez.");
             RuleFor(x => x.Sinif).NotEmpty().WithMessage("Sınıf boş gecilemez.");
             RuleFor(x => x.Sifre).NotEmpty().WithMessage("Şifre boş gecilemez.");
-
+ 
 
 
             RuleFor(x => x.Sifre).MaximumLength(11).WithMessage("6 karakter olmalı.");
