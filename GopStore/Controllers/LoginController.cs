@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace GopStore.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : Controller 
     {
         AdminLoginManager alm = new AdminLoginManager(new EfAdminsDal());
         StudentLoginManager slm = new StudentLoginManager(new EfStudentDal());
