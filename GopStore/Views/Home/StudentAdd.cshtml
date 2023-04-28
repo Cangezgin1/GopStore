@@ -14,7 +14,7 @@
     <div style="color: #7e3af2;font-weight:bold;" class="form-group">
         @Html.HiddenFor(x => x.StudentID, new { @class = "form-control" })
         <br />
-        @Html.LabelForModel("Öğrenci Adı:")
+        @Html.LabelForModel("Öğrenci Adı:") 
         @Html.TextBoxFor(x => x.İsim, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.İsim, "", new { @class = "text-danger font-weight-bold" })
         <br />
