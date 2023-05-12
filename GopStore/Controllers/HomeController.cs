@@ -55,7 +55,7 @@ namespace GopStore.Controllers
         public IActionResult Profil(Admins admins)
         {
             ValidationResult result = adminvalidator.Validate(admins);
-            if (result.IsValid)
+            if (result.IsValid) 
             {
                 am.AdminUpdate(admins);
                 return View();
