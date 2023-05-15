@@ -36,7 +36,7 @@ namespace GopStore.Controllers
         StudentValidator studentvalidator = new StudentValidator();
         SetValidator setvalidator = new SetValidator();
         ProductsValidator productsvalidator = new ProductsValidator();
-        Student_SetValidator student_setlervalidator = new Student_SetValidator();
+        Student_SetValidator student_setlervalidator = new Student_SetValidator(); 
 
         #endregion
 
