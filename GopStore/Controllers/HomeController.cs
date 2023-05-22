@@ -20,7 +20,7 @@ namespace GopStore.Controllers
         Context c = new Context();
 
         #region MANAGER'LER
-
+ 
         AdminsManager am = new AdminsManager(new EfAdminsDal());
         StudentsManager sm = new StudentsManager(new EfStudentsDal(), new EfStudents_SetlerDal());
         SetlerManager setm = new SetlerManager(new EfSetlerDal());
