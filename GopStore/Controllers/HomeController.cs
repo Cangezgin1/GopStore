@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GopStore.Controllers
 {
     public class HomeController : Controller
-    {
+    { 
         Context c = new Context();
 
         #region MANAGER'LER
